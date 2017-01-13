@@ -1,0 +1,16 @@
+{% extends "base_layout.html" %}
+{% block title %} Address {% endblock %}
+{% block head %}
+    {{ super () }}
+{% endblock %}
+{% block content %}
+<div class="container">
+    <h3 class="text-center">Rolodex Entry</h3>
+    <table class="table">
+        <tr>
+            <td><strong>Name</strong></td>
+            <td>{{ address.name }}</td>
+        </tr>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base_layout.html" %}
+{% block title %} Home {% endblock %}
+{% block head %}
+    {{ super () }}
+{% endblock %}
+{% block content %}
+<div class="container" ng-controller="HomeController">
+    <div class="row text-center">
+        <button class="btn btn-primary" onclick='document.location.pathname = "/address"'/>New Rolodex Entry</button>
+    </div>
+    <h4>The Rolodex</h4>
+    <table class="table table-bordered rolodex-table">
+        <tr>
+            <th>Name</th>
+        </tr>
+        <tr dir-paginate="address in addresses | itemsPerPage: addressesPerPage" total-items="totalAddresses" current-page="pagination.current" pagination-id="addresses">
+            <td><a href="/address/{a address.id a}">{a address.name a}</a></td>
+        </tr>
+    </table>
+    <dir-pagination-controls on-page-change="pageChanged(newPageNumber)" pagination-id="addresses"></dir-pagination-controls>
+</div>
+{% endblock %}
