@@ -1,4 +1,4 @@
-angular.module('LobRolodex.homeControllers', ['angularUtils.directives.dirPagination'])
+angular.module('LobRolodex.controllers', ['angularUtils.directives.dirPagination'])
 .controller('HomeController', function($scope, $http) {
     $scope.addresses = [];
     $scope.totalAddresses = 0;
@@ -56,5 +56,15 @@ angular.module('LobRolodex.homeControllers', ['angularUtils.directives.dirPagina
 
     $scope.getRemoveAddressUrl = function(address) {
         return 'address/' + address.id + '/remove';
+    };
+})
+.controller('NewAddressController', function($scope) {
+    $scope.country = 'US';
+
+    // Need this hack because the bootstrap form helpers do some weird stuff
+    // that breaks angular databinding to the select.
+    document.getElementById("countriesSelect").onchange = function(event) {
+        country = event.target.value;
+        $scope.country = country;
     };
 });

@@ -1,6 +1,6 @@
 var app = angular.module('LobRolodex',
         [
-        'LobRolodex.homeControllers'
+        'LobRolodex.controllers'
         ]
 )
 .config(['$interpolateProvider', '$locationProvider', function($interpolateProvider, $locationProvider) {

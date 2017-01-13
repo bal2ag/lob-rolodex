@@ -23,9 +23,15 @@ def address(addressId):
     address = g.lob_client.lob.Address.retrieve(addressId)
     return render_template('address.html', address=address)
 
+@api.route('/address/<addressId>/remove', methods=["POST"])
+def remove_address(addressId):
+    address = g.lob_client.lob.Address.retrieve(addressId)
+    g.lob_client.lob.Address.delete(address['id'])
+    return redirect(url_for('.home'))
+
 @api.route('/address/<addressId>/send')
 def send_postcard_view(addressId):
-    address = g.lob_client.lob.Postcard.retrieve(addressId)
+    address = g.lob_client.lob.Address.retrieve(addressId)
     return render_template('send_postcard.html', address=address)
 
 @api.route('/postcard/<postcardId>')
@@ -78,6 +84,9 @@ def create_address():
             raise InvalidClientInput("state must be specified for US")
         if not address_zip:
             raise InvalidClientInput("zip must be specified for US")
+    else:
+        address_state = None # If state was specified but country is not US,
+                             # null it out
 
     phone = data.get("phone")
     if phone and len("phone") > 40:

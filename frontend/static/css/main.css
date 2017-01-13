@@ -1,3 +1,7 @@
 table.rolodex-table {
     margin-bottom = 0;
 }
+
+input#addressLine2 {
+    margin-top: 5px;
+}
