@@ -27,4 +27,34 @@ angular.module('LobRolodex.homeControllers', ['angularUtils.directives.dirPagina
             }
         );
     };
+
+    $scope.formatName = function(address) {
+        if (address.name) {
+            return address.name;
+        }
+        return address.company;
+    };
+
+    $scope.formatAddress = function(address) {
+        if (address.address_line2) {
+            return address.address_line1 + ' ' + address.address_line2;
+        }
+        return address.address_line1;
+    };
+
+    $scope.formatLocation = function(address) {
+        if (address.address_country == 'United States') {
+            return address.address_city + ', ' + address.address_state;
+        };
+        return address.address_country;
+    };
+
+    $scope.redirectToSendCardView = function(address) {
+        console.log(address);
+        window.location = 'address/' + address.id + '/send';
+    };
+
+    $scope.getRemoveAddressUrl = function(address) {
+        return 'address/' + address.id + '/remove';
+    };
 });
