@@ -2,7 +2,7 @@ angular.module('LobRolodex.controllers', ['angularUtils.directives.dirPagination
 .controller('HomeController', function($scope, $http) {
     $scope.addresses = [];
     $scope.totalAddresses = 0;
-    $scope.addressesPerPage = 10;
+    $scope.addressesPerPage = 5;
     getResultsPage(1);
 
     $scope.pagination = {

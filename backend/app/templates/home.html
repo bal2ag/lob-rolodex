@@ -12,31 +12,32 @@
     <div class="row text-center">
         <button type="button" class="btn btn-primary" onclick='window.location.pathname = "/address"'/>New Rolodex Entry</button>
     </div>
-    <h4>The Rolodex</h4>
-    <table class="table table-bordered rolodex-table">
-        <tr>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Location</th>
-            <th class="text-center">Merry Christmas!</th>
-            <th class="text-center">Remove</th>
-        </tr>
-        <tr dir-paginate="address in addresses | itemsPerPage: addressesPerPage" total-items="totalAddresses" current-page="pagination.current" pagination-id="addresses">
-            <td><a href="/address/{a address.id a}">{a formatName(address) a}</a></td>
-            <td>{a formatAddress(address) a}</td>
-            <td>{a formatLocation(address) a}</td>
-            <td class="text-center">
-                <button type="button" class="btn btn-success" aria-label="Remove Address" ng-click="redirectToSendCardView(address)">Send Card</button>
-            </td>
-            <td class="text-center">
-                <form class="form" role="form" method="post" action="{a getRemoveAddressUrl(address) a}">
-                    <button type="submit" class="btn btn-sm btn-default" aria-label="Remove Address">
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    </button>
-                </form>
-            </td>
-        </tr>
-    </table>
+    <div class="table-responsive rolodex-table-container">
+        <table class="table table-bordered rolodex-table">
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Location</th>
+                <th class="text-center">Merry Christmas!</th>
+                <th class="text-center">Remove</th>
+            </tr>
+            <tr dir-paginate="address in addresses | itemsPerPage: addressesPerPage" total-items="totalAddresses" current-page="pagination.current" pagination-id="addresses">
+                <td><a href="/address/{a address.id a}">{a formatName(address) a}</a></td>
+                <td>{a formatAddress(address) a}</td>
+                <td>{a formatLocation(address) a}</td>
+                <td class="text-center">
+                    <button type="button" class="btn btn-success" aria-label="Remove Address" ng-click="redirectToSendCardView(address)">Send Card</button>
+                </td>
+                <td class="text-center">
+                    <form class="form" role="form" method="post" action="{a getRemoveAddressUrl(address) a}">
+                        <button type="submit" class="remove-button" aria-label="Remove Address">
+                            <span class="remove-icon glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
     <dir-pagination-controls on-page-change="pageChanged(newPageNumber)" pagination-id="addresses"></dir-pagination-controls>
 </div>
 {% endblock %}

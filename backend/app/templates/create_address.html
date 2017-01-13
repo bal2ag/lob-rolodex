@@ -12,6 +12,7 @@
     <script src="/external/bootstrap-formhelpers-states.en_US.js"></script>
 {% endblock %}
 {% block content %}
+{% include 'navbar.html' %}
 <div class="container" ng-controller="NewAddressController">
     <form id="newAddress" class="form-horizontal col-md-offset-3" role="form" method="post" action="address" autocomplete="off">
         <h4>New Rolodex Entry</h4>
