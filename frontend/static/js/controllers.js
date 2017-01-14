@@ -30,6 +30,14 @@ angular.module('LobRolodex.controllers', ['angularUtils.directives.dirPagination
             }
         );
     };
+
+    $scope.redirectToSendCardView = function(address) {
+        window.location = 'address/' + address.id + '/send';
+    };
+
+    $scope.getRemoveAddressUrl = function(address) {
+        return 'address/' + address.id + '/remove';
+    };
 }])
 .controller('NewAddressController', function($scope) {
     $scope.country = 'US';

@@ -12,7 +12,7 @@
     <div class="row text-center">
         <button type="button" class="btn btn-primary" onclick='window.location.pathname = "/address"'/>New Rolodex Entry</button>
     </div>
-    <div class="table-responsive rolodex-table-container">
+    <div class="table-responsive rolodex-table-container" ng-show="addresses.length > 0">
         <table class="table table-bordered rolodex-table">
             <tr>
                 <th>Name</th>

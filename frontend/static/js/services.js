@@ -40,13 +40,5 @@ angular.module('LobRolodex.services', [])
         return address.address_country;
     };
     
-    service.redirectToSendCardView = function(address) {
-        window.location = 'address/' + address.id + '/send';
-    };
-    
-    service.getRemoveAddressUrl = function(address) {
-        return 'address/' + address.id + '/remove';
-    };
-
     return service;
 });
