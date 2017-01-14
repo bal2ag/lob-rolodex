@@ -40,7 +40,9 @@ angular.module('LobRolodex.controllers', ['angularUtils.directives.dirPagination
     };
 }])
 .controller('NewAddressController', function($scope) {
-    $scope.country = 'US';
+    $scope.initCountry = function(country) {
+        $scope.country = country;
+    };
 
     // Need this hack because the bootstrap form helpers do some weird stuff
     // that breaks angular databinding to the select.

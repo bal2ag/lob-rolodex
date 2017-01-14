@@ -10,6 +10,7 @@ def boolify(value):
     return True
 
 class Config(object):
+    SECRET_KEY = os.environ["SECRET_KEY"]
     LOB_API_KEY = os.environ["LOB_API_KEY"]
 
     CHRISTMAS_CARD_FILE = os.environ["CHRISTMAS_CARD_TEMPLATE"]

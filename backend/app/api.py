@@ -1,7 +1,9 @@
 from flask import (Blueprint, current_app, redirect, url_for, render_template,
-                   request, g)
+                   request, g, session)
 from .errors import InvalidClientInput
 from .lob_client import LobClient
+
+import json
 
 api = Blueprint('api', __name__)
 
@@ -16,7 +18,9 @@ def home():
 
 @api.route('/address')
 def create_address_view():
-    return render_template('create_address.html')
+    existing_form = json.loads(session.get('new_address_form'))\
+            if 'new_address_form' in session else {}
+    return render_template('create_address.html', existing_form=existing_form)
 
 @api.route('/address/<addressId>')
 def address(addressId):
@@ -62,6 +66,7 @@ def create_address():
     data = request.form
     if data is None:
         raise InvalidClientInput("form data must be present")
+    session["new_address_form"] = json.dumps(data)
 
     name = data.get("name")
     if name is not None and len(name) > 50:
@@ -124,6 +129,9 @@ def create_address():
             address_zip=address_zip,
             address_country=address_country
     )
+
+    # Clear the session if the form submission was successful.
+    session["new_address_form"] = json.dumps({})
     return redirect(url_for('.address', addressId=address["id"]))
 
 @api.route('/address/<addressId>/send', methods=['POST'])
