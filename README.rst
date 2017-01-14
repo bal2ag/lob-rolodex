@@ -80,3 +80,8 @@ improvements that could be made to this app::
 3. Allow users to customize the postcards that get sent, or upload their own.
 4. Keep track of the last time a postcard was sent for a user, and a history of
    previous postcards sent.
+
+License
+-------
+
+This proof-of-concept is MIT-licensed. Do with it what you will!
