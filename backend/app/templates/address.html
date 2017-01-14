@@ -4,13 +4,28 @@
     {{ super () }}
 {% endblock %}
 {% block content %}
-<div class="container">
-    <h3 class="text-center">Rolodex Entry</h3>
+{% include 'navbar.html' %}
+<div class="container" ng-controller="AddressController">
+    <h3 class="text-center address-header">{a formatting.formatName({{ address }}) a}</h3>
     <table class="table">
         <tr>
-            <td><strong>Name</strong></td>
-            <td>{{ address.name }}</td>
+            <td><strong>Address</strong></td>
+            <td class="mailing-address-text">{a formatting.formatMailingAddress({{ address }}) a}</td>
+        </tr>
+        <tr>
+            <td><strong>Email</strong></td>
+            <td>{{ address.email }}</td>
+        </tr>
+        <tr>
+            <td><strong>Phone Number</strong></td>
+            <td>{{ address.phone }}</td>
         </tr>
     </table>
+    <form id="addressAlterForm" class="form text-center" role="form" method="post" action="/address/{{ address.id }}/action">
+        <div class="btn-group" role="group" aria-label="Address Actions">
+            <button type="submit" class="btn btn-success" name="action" value="send">Send Card</button>
+            <button type="submit" class="btn btn-danger" name="action" value="remove">Remove</button>
+        </div>
+    </form>
 </div>
 {% endblock %}

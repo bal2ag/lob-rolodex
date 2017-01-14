@@ -22,9 +22,9 @@
                 <th class="text-center">Remove</th>
             </tr>
             <tr dir-paginate="address in addresses | itemsPerPage: addressesPerPage" total-items="totalAddresses" current-page="pagination.current" pagination-id="addresses">
-                <td><a href="/address/{a address.id a}">{a formatName(address) a}</a></td>
-                <td>{a formatAddress(address) a}</td>
-                <td>{a formatLocation(address) a}</td>
+                <td><a href="/address/{a address.id a}">{a formatting.formatName(address) a}</a></td>
+                <td>{a formatting.formatAddress(address) a}</td>
+                <td>{a formatting.formatLocation(address) a}</td>
                 <td class="text-center">
                     <button type="button" class="btn btn-success" aria-label="Remove Address" ng-click="redirectToSendCardView(address)">Send Card</button>
                 </td>

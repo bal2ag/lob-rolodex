@@ -1,5 +1,8 @@
+
 angular.module('LobRolodex.controllers', ['angularUtils.directives.dirPagination'])
-.controller('HomeController', function($scope, $http) {
+.controller('HomeController', ['$scope', '$http', 'formattingService', function($scope, $http, formattingService) {
+    $scope.formatting = formattingService;
+
     $scope.addresses = [];
     $scope.totalAddresses = 0;
     $scope.addressesPerPage = 5;
@@ -27,37 +30,7 @@ angular.module('LobRolodex.controllers', ['angularUtils.directives.dirPagination
             }
         );
     };
-
-    $scope.formatName = function(address) {
-        if (address.name) {
-            return address.name;
-        }
-        return address.company;
-    };
-
-    $scope.formatAddress = function(address) {
-        if (address.address_line2) {
-            return address.address_line1 + ' ' + address.address_line2;
-        }
-        return address.address_line1;
-    };
-
-    $scope.formatLocation = function(address) {
-        if (address.address_country == 'United States') {
-            return address.address_city + ', ' + address.address_state;
-        };
-        return address.address_country;
-    };
-
-    $scope.redirectToSendCardView = function(address) {
-        console.log(address);
-        window.location = 'address/' + address.id + '/send';
-    };
-
-    $scope.getRemoveAddressUrl = function(address) {
-        return 'address/' + address.id + '/remove';
-    };
-})
+}])
 .controller('NewAddressController', function($scope) {
     $scope.country = 'US';
 
@@ -67,4 +40,7 @@ angular.module('LobRolodex.controllers', ['angularUtils.directives.dirPagination
         country = event.target.value;
         $scope.country = country;
     };
-});
+})
+.controller('AddressController', ['$scope', 'formattingService', function($scope, formattingService) {
+    $scope.formatting = formattingService;
+}]);

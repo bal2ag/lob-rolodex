@@ -1,5 +1,6 @@
 var app = angular.module('LobRolodex',
         [
+        'LobRolodex.services',
         'LobRolodex.controllers'
         ]
 )

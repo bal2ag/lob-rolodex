@@ -23,6 +23,23 @@ def address(addressId):
     address = g.lob_client.lob.Address.retrieve(addressId)
     return render_template('address.html', address=address)
 
+# Proxy to send/remove so that a single form with multiple submit buttons can
+# be used.
+@api.route('/address/<addressId>/action', methods=["POST"])
+def address_action(addressId):
+    data = request.form
+    if not data:
+        raise InvalidClientInput("form data must be present")
+
+    action = data.get("action")
+    if action == 'send':
+        return redirect(url_for('.send_postcard_view', addressId=addressId))
+    elif action == 'remove':
+        g.lob_client.lob.Address.delete(addressId)
+        return redirect(url_for('.home'))
+    else:
+        raise InvalidClientInput("invalid action: %s" % action)
+
 @api.route('/address/<addressId>/remove', methods=["POST"])
 def remove_address(addressId):
     address = g.lob_client.lob.Address.retrieve(addressId)
