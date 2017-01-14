@@ -1,0 +1,15 @@
+{% extends "base_layout.html" %}
+{% block title %} Send Christmas Card {% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+{% include 'navbar.html' %}
+<div class="container" ng-controller="SendPostcardController">
+    <form id="sendPostcard" class="form text-center" role="form" method="post" action="/address/{{ address.id }}/send" autocomplete="off">
+        <p>Send a personalized message to {a formatting.formatName({{ address }}) a} wishing them a Merry Christmas!</p>
+        <textarea class="form-control" id="message" name="message" maxLength="350" rows="5"></textarea>
+        <button type="submit" class="send-postcard-submit btn btn-primary">Send Postcard</button>
+    </form>
+</div>
+{% endblock %}

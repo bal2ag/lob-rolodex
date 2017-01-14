@@ -132,7 +132,7 @@ def send_postcard(addressId):
     if data is None:
         raise InvalidClientInput("form data must be present")
 
-    address = g.lob_client.lob.Postcard.retrieve(addressId)
+    address = g.lob_client.lob.Address.retrieve(addressId)
  
     message = data.get("message")
     if message is None:

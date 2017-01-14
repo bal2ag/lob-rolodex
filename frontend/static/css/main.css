@@ -40,3 +40,13 @@ h3.address-header {
 td.mailing-address-text {
     white-space: pre;
 }
+
+/* Send Postcard Page */
+button.send-postcard-submit {
+    margin-top: 10px;
+}
+
+/* Postcard Page */
+p.postcard-url-text {
+    font-size: 18px;
+}

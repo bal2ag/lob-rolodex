@@ -1,0 +1,14 @@
+{% extends "base_layout.html" %}
+{% block title %} Postcard {% endblock %}
+{% block head %}
+    {{ super () }}
+{% endblock %}
+{% block content %}
+{% include 'navbar.html' %}
+<div class="container">
+    <h3>Your postcard is on its way!</h3>
+    <p>...well, it would be. But this is just a proof of concept app! No actual postcards will be sent.</p>
+    <p>Take a look at the postcard that would be sent in the real app:<p>
+    <p class="postcard-url-text"><a href="{{ postcard.url }}">Your Postcard</a></p>
+</div>
+{% endblock %}

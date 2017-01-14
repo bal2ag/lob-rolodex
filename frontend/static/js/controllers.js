@@ -51,4 +51,7 @@ angular.module('LobRolodex.controllers', ['angularUtils.directives.dirPagination
 })
 .controller('AddressController', ['$scope', 'formattingService', function($scope, formattingService) {
     $scope.formatting = formattingService;
+}])
+.controller('SendPostcardController', ['$scope', 'formattingService', function($scope, formattingService) {
+    $scope.formatting = formattingService;
 }]);
