@@ -60,8 +60,8 @@ deploy using `docker-machine <https://docs.docker.com/machine/>`_ and
 Then build the app and run it on the machine::
 
   eval "$(docker-machine env rolodex)"
-  docker-compose docker-compose.yml build
-  docker-compose docker-compose.yml up -d
+  docker-compose build
+  docker-compose up -d
 
 Future Improvements
 -------------------
