@@ -1,5 +1,40 @@
+/* Global */
+html {
+    background: url(/img/bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body {
+    background-color: rgba(255, 0, 0, 0.0);
+}
+
+div.navbar {
+    background-color: rgba(0, 0, 0, 0.0);
+    margin-bottom: 5px;
+}
+
+.navbar-brand {
+    color: #e6e6e6;
+}
+
+.borderless-table, .borderless-table td, .borderless-table th, tfoot>tr>td {
+    border: none !important;
+}
 
 /* Home Page */
+h1.main-title {
+    color: #e6e6e6;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+}
+
+p.main-subtitle {
+    color: #e6e6e6;
+}
+
 div.rolodex-table-container {
     margin-bottom: 0;
     margin-top: 20px;
@@ -32,6 +67,12 @@ span.remove-icon {
     padding-top: 3px;
 }
 
+/* New Address Page */
+h3.new-address-title {
+    color: #e6e6e6;
+    margin-top: 0;
+}
+
 /* Address Page */
 h3.address-header {
     margin-top: 0;
@@ -44,6 +85,10 @@ td.mailing-address-text {
 /* Send Postcard Page */
 button.send-postcard-submit {
     margin-top: 10px;
+}
+
+p.send-title {
+    color: #e6e6e6;
 }
 
 /* Postcard Page */

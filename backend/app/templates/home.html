@@ -6,27 +6,18 @@
 {% block content %}
 <div class="container" ng-controller="HomeController">
     <div class="header text-center">
-        <h1>Rolodex</h1>
-        <p>Store your virtual Rolodex, and send Christmas cards with a simple click!</p>
+        <h1 class="main-title">Rolodex</h1>
+        <p class="main-subtitle">Store your virtual Rolodex, and send Christmas cards with a simple click!</p>
     </div>
     <div class="row text-center">
         <button type="button" class="btn btn-primary" onclick='window.location.pathname = "/address"'/>New Rolodex Entry</button>
     </div>
-    <div class="table-responsive rolodex-table-container" ng-show="addresses.length > 0">
-        <table class="table table-bordered rolodex-table">
-            <tr>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Location</th>
-                <th class="text-center">Merry Christmas!</th>
-                <th class="text-center">Remove</th>
-            </tr>
+    <div class="table-responsive rolodex-table-container borderless-table" ng-show="addresses.length > 0">
+        <table class="table rolodex-table borderless-table">
             <tr dir-paginate="address in addresses | itemsPerPage: addressesPerPage" total-items="totalAddresses" current-page="pagination.current" pagination-id="addresses">
-                <td><a href="/address/{a address.id a}">{a formatting.formatName(address) a}</a></td>
-                <td>{a formatting.formatAddress(address) a}</td>
-                <td>{a formatting.formatLocation(address) a}</td>
+                <td><a href="/address/{a address.id a}"><strong>{a formatting.formatName(address) a}</strong></a></td>
                 <td class="text-center">
-                    <button type="button" class="btn btn-success" aria-label="Remove Address" ng-click="redirectToSendCardView(address)">Send Card</button>
+                    <button type="button" class="btn btn-success" aria-label="Send Card" ng-click="redirectToSendCardView(address)">Send Card</button>
                 </td>
                 <td class="text-center">
                     <form class="form" role="form" method="post" action="{a getRemoveAddressUrl(address) a}">

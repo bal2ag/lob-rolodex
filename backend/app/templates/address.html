@@ -7,7 +7,7 @@
 {% include 'navbar.html' %}
 <div class="container" ng-controller="AddressController">
     <h3 class="text-center address-header">{a formatting.formatName({{ address }}) a}</h3>
-    <table class="table">
+    <table class="table borderless-table">
         <tr>
             <td><strong>Address</strong></td>
             <td class="mailing-address-text">{a formatting.formatMailingAddress({{ address }}) a}</td>
