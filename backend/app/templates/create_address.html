@@ -38,7 +38,9 @@
         <div class="form-group">
             <label for="country" class="col-md-2 control-label">Country</label>
             <div class="col-md-4">
-                <select id="countriesSelect" name ="country" class="form-control bfh-countries" data-country="{{ existing_form.get('country', 'US') }}" data-flags="true" ng-model="data.countryTest"></select>
+                <label class="new-address-select-label">
+                    <select id="countriesSelect" name ="country" class="form-control bfh-countries" data-country="{{ existing_form.get('country', 'US') }}" data-flags="true" ng-model="data.countryTest"></select>
+                </label>
             </div>
         </div>
         <div class="form-group">
@@ -50,7 +52,9 @@
         <div class="form-group" ng-hide="country != 'US'">
             <label for="state" class="col-md-2 control-label">State</label>
             <div class="col-md-4">
-                <select name="state" class="form-control bfh-states" data-country="US" data-state="{{ existing_form.get('state', 'CA') }}"></select>
+                <label class="new-address-select-label">
+                    <select name="state" class="form-control bfh-states" data-country="US" data-state="{{ existing_form.get('state', 'CA') }}"></select>
+                </label>
             </div>
         </div>
         <div class="form-group">
